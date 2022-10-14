@@ -1,0 +1,22 @@
+        Step 1 :-
+               Creating a parent folder
+          
+                  output == backup
+ 
+        Step 2 :-
+               Creating a Sub folder 
+                   
+                 output == main
+              
+        Step 3 :-
+              Creating a sub folder in main
+
+                 output == submain
+        Step 4 ;-
+              creating files in Submain folder
+                
+                 output == docx
+                           pdf
+                           txt
+        step 5 ;-
+             copying files from item folder and paste it to the specific folder (i.e backup folder)
