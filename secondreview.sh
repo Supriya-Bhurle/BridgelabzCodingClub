@@ -1,27 +1,67 @@
-echo "List of Team : GT, RR, LSG, RCB, DC, PBKS, KKR, SRH, CSK, MI"
-read -p "Enter the TEAM Name : " TEAM
+matches_played=14
 
-case "$TEAM" in
-   "GT") echo "Total Matches = 14 , Win Mathches = 10 , Loss matches = 4 , NRR = +0.316 , Points = 20 ."
-    ;;
-    "RR") echo "Total Matches = 14 , Win Mathches = 9 , Loss matches = 5 , NRR = +0.296 , Points = 18 ."
-    ;;
-    "LSG") echo "Total Matches = 14 , Win Mathches = 9 , Loss matches = 5 , NRR = +0.251 , Points = 18 ."
-    ;;
-    "RCB") echo "Total Matches = 14 , Win Mathches = 8 , Loss matches = 6 , NRR = -0.253 , Points = 16 ."
-    ;;
-    "DC") echo "Total Matches = 14 , Win Mathches = 7 , Loss matches = 7 , NRR = +0.204 , Points = 14 ."
-    ;;
-    "PBKS") echo "Total Matches = 14 , Win Mathches = 7 , Loss matches = 7 , NRR = +0.126 , Points = 14 ."
-    ;;
-    "KKR") echo "Total Matches = 14 , Win Mathches = 6 , Loss matches = 8 , NRR = +0.146 , Points = 12 ."
-    ;;
-    "SRH") echo "Total Matches = 14 , Win Mathches = 6 , Loss matches = 8 , NRR = -0.379 , Points = 12 ."
-    ;;
-    "CSK") echo "Total Matches = 14 , Win Mathches = 4 , Loss matches = 10 , NRR = -0.203 , Points = 8 ."
-    ;;
-    "MI") echo "Total Matches = 14 , Win Mathches = 4 , Loss matches = 10 , NRR = -0.506 , Points = 8 ."
-    ;;
-esac
+function calculation() {
+	echo "Match Played : 14"
+	echo "Match won : "$1
+	m_lost=$((matches_played-$1))
+	echo "Match lost : "$m_lost
+	ipl_points=$(($1*2))
+	echo "Points : "$ipl_points
+}
 
+declare -a ipl_array
+ipl_array=("GT" "RR" "LSG" "RCB" "DC" "PBKS" "KKR" "SRH" "CSK" "MI")
+for ((i=0; i<10; i++)) {
+	echo "Team no "$((i+1))" is ${ipl_array[i]}"
+}
+read -p "Enter a team name : " teamname
+
+if [[ " ${ipl_array[*]} " =~ " ${teamname} " ]]
+then
+	case $teamname in
+		${ipl_array[0]})
+			matches_won=10
+			calculation "$matches_won" 
+		;;
+		${ipl_array[1]})
+			matches_won=9
+			calculation "$matches_won" 
+		;;
+		${ipl_array[2]})
+			matches_won=9
+			calculation "$matches_won" 
+		;;
+		${ipl_array[3]})
+			matches_won=8
+			calculation "$matches_won" 
+		;;
+		${ipl_array[4]})
+			matches_won=7
+			calculation "$matches_won" 
+		;;
+		${ipl_array[5]})
+			matches_won=7
+			calculation "$matches_won" 
+		;;
+		${ipl_array[6]})
+			matches_won=6
+			calculation "$matches_won" 
+		;;
+		${ipl_array[7]})
+			matches_won=6
+			calculation "$matches_won" 
+		;;
+		${ipl_array[8]})
+			matches_won=4
+			calculation "$matches_won" 
+		;;
+		${ipl_array[9]})
+			matches_won=4
+			calculation "$matches_won" 
+		;;
+		*)
+			echo "Enter a valid input"
+		;;
+	esac		
+fi
 
